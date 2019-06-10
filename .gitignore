@@ -1,0 +1,8 @@
+/public/upload
+/public/QrCode
+/public/cert
+/storage/*.key
+/.idea
+/.env
+/*.rar
+
