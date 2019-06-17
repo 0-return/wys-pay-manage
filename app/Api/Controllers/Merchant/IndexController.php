@@ -125,6 +125,18 @@ class IndexController extends BaseController
                     $beginToday = date("Y-m-d 00:00:00", time());
                     $endToday = date("Y-m-d H:i:s", time());
 
+                    //针对单个收银员
+
+//                    $day_order_data = MerchantStoreDayOrder::where('day', $day)
+//                        ->where('merchant_id', $merchant->merchant_id)
+//                        ->select('total_amount', 'order_sum');
+//
+//
+//                    $refund_order_data = RefundOrder::whereBetween('created_at', [$beginToday, $endToday])
+//                        ->where('merchant_id', $merchant->merchant_id)
+//                        ->select('refund_amount');
+
+
                     //整个门店ID
                     $MerchantStore = MerchantStore::where('merchant_id', $merchant->merchant_id)
                         ->select('store_id')
@@ -195,8 +207,8 @@ class IndexController extends BaseController
 
         }
 
-        return $this->format($data);
 
+        return $this->format($data);
 
 
     }

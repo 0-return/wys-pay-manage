@@ -2779,7 +2779,7 @@ class PayBaseController extends BaseController
                 ];
 
                 $return = $obj->qr_submit($fuiou_data);
-
+                var_dump($return);exit;
                 if ($return['status'] == 0) {
                     return json_encode($return);
                 }

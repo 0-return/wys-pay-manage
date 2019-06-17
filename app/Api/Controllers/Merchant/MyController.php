@@ -31,7 +31,6 @@ class MyController extends BaseController
                 $data1 = DB::table('app_my_indexs')
                     ->whereNotIn('type', ['rzzx', 'sqtd', 'sksx'])
                     ->where('type', '!=', 'url')
-                    ->where('is_delete', '=', '1')
                     ->orderBy('sort', 'asc')
                     ->get();
                 $arr1 = $data1->toArray();
@@ -39,7 +38,6 @@ class MyController extends BaseController
                 //店长
                 $data1 = DB::table('app_my_indexs')
                     ->where('type', '!=', 'url')
-                    ->where('is_delete', '=', '1')
                     ->orderBy('sort', 'asc')->get();
                 $arr1 = $data1->toArray();
             }
@@ -48,7 +46,6 @@ class MyController extends BaseController
             if (in_array($merchant->phone, ['18025433769'])) {
                 $data1 = DB::table('app_my_indexs')
                     ->whereIn('type', ['lxkf', 'cjwt'])
-                    ->where('is_delete', '=', '1')
                     ->orderBy('sort', 'asc')
                     ->get();
                 $arr1 = $data1->toArray();
@@ -60,13 +57,11 @@ class MyController extends BaseController
                 $data2 = DB::table('app_my_indexs')
                     ->where('config_id', $merchant->config_id)
                     ->where('type', '=', 'url')
-                    ->where('is_delete', '=', '1')
                     ->orderBy('sort', 'asc')->get();
             } else {
                 $data2 = DB::table('app_my_indexs')
                     ->where('config_id', '1234')
                     ->where('type', '=', 'url')
-                    ->where('is_delete', '=', '1')
                     ->orderBy('sort', 'asc')
                     ->get();
 
@@ -177,7 +172,6 @@ class MyController extends BaseController
     //
     public function me(Request $request)
     {
-
         try {
             $merchant = $this->parseToken();
             $merchants = Merchant::where('id', $merchant->merchant_id)

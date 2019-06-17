@@ -201,7 +201,7 @@ class LoginController extends BaseController
             $register = 0;
             //1.通过code 拿到 openid  session_key
             $url = 'https://api.weixin.qq.com/sns/jscode2session';
-            $appid = $request->get('wx_app_id', 'wx3c51a880e84492d7');
+            $appid = $request->get('wx_app_id', 'wx13dedb6f69088cf0');
             //微信小程序配置
 
             $WeixinAppConfig = WeixinAppConfig::where('wx_appid', $appid)->first();

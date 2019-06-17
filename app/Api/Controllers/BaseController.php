@@ -22,7 +22,6 @@ class BaseController extends Controller
     */
     public function parseToken($token = '')
     {
-
         try {
             JWTAuth::setToken(JWTAuth::getToken());
             $data = JWTAuth::getPayload();//数组
