@@ -402,4 +402,17 @@ $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers\DfPay', 'prefix' => 'dfpay'], function ($api) {
         $api->any('pay_notify', 'NotifyController@pay_notify');
     });
+
+    //官网数据提交不需要token
+    $api->group(['namespace' => 'App\Api\Controllers\Customer', 'prefix' => 'customer'], function ($api) {
+        $api->any('add', 'IndexController@add');
+    });
+
+    //官网数据操作需要token
+    $api->group(['namespace' => 'App\Api\Controllers\Customer', 'prefix' => 'customer','middleware' => 'public.api'], function ($api) {
+        $api->any('list', 'IndexController@lists');
+        $api->any('show', 'IndexController@show');
+        $api->any('edit', 'IndexController@edit');
+        $api->any('del', 'IndexController@del');
+    });
 });

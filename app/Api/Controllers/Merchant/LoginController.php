@@ -216,6 +216,7 @@ class LoginController extends BaseController
             $encryptedData = $request->get('encryptedData', '');
             $iv = $request->get('iv', '');
             $url = $url . '?appid=' . $appid . '&secret=' . $secret . '&js_code=' . $js_code . '&grant_type=authorization_code';
+
             $re = Tools::curl([], $url);
             $re_arr = json_decode($re, true);
 
